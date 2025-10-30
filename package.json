@@ -10,7 +10,8 @@
     "build-only": "vite build",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "deploy": "gh-pages -d dist"
+    "deploy": "vite build && gh-pages -d dist"
+
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
