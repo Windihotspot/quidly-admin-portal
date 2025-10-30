@@ -1,0 +1,520 @@
+{
+  "status": "success",
+  "status_code": 200,
+  "data": {
+    "message": "Fetched credit check by unique_key",
+    "credit_history": {
+      "id": 30,
+      "borrower_id": null,
+      "id_type": "individual",
+      "id_string": "22237445320",
+      "unique_key": "d4c5c7c9-cb26-40a5-befc-c1b9740ad366",
+      "tenant_id": "6b54652e-6875-497d-b888-0bf06e1de152",
+      "fcbc_credit_history": [
+        {
+          "SubjectList": []
+        },
+        {
+          "PersonalDetailsSummary": [
+            {
+              "Header": "PERSONAL DETAILS SUMMARY: YEKINI ISKILU OJO",
+              "ConsumerID": 3484837,
+              "ReferenceNo": null,
+              "Nationality": "Nigeria",
+              "NationalIDNo": "",
+              "PassportNo": null,
+              "DriversLicenseNo": null,
+              "BankVerificationNo": "22237445320",
+              "PencomIDNo": "",
+              "otheridNo": "",
+              "BirthDate": "13/04/1977",
+              "Dependants": 0,
+              "Gender": "Male",
+              "MaritalStatus": null,
+              "ResidentialAddress1": "AGBEDE ALARAGBO IKORODU LAGOS STATE",
+              "ResidentialAddress2": "",
+              "ResidentialAddress3": "",
+              "ResidentialAddress4": " ",
+              "PostalAddress1": "NA",
+              "PostalAddress2": "",
+              "PostalAddress3": "",
+              "PostalAddress4": " ",
+              "HomeTelephoneNo": "08169774706",
+              "WorkTelephoneNo": "08169774706",
+              "CellularNo": "08169774706",
+              "EmailAddress": "",
+              "EmployerDetail": null,
+              "PropertyOwnedType": "",
+              "Surname": "YEKINI",
+              "FirstName": "ISKILU",
+              "OtherNames": "OJO"
+            }
+          ]
+        },
+        {
+          "DeliquencyInformation": []
+        },
+        {
+          "CreditAccountSummary": [
+            {
+              "TotalMonthlyInstalment": "0.00",
+              "TotalOutstandingdebt": "0.00",
+              "TotalAccountarrear": "0",
+              "Amountarrear": "0.00",
+              "TotalAccounts": "0",
+              "TotalAccounts1": "0",
+              "TotalaccountinGodcondition": "0",
+              "TotalaccountinGoodcondition": "0",
+              "TotalNumberofJudgement": "0",
+              "TotalJudgementAmount": "0",
+              "LastJudgementDate": "-",
+              "TotalNumberofDishonoured": "0",
+              "TotalDishonouredAmount": "0.00",
+              "LastBouncedChequesDate": null,
+              "TotalMonthlyInstalment1": "0.00",
+              "TotalOutstandingdebt1": "0.00",
+              "TotalAccountarrear1": "0",
+              "Amountarrear1": "0.00",
+              "TotalaccountinGodcondition1": "0",
+              "TotalaccountinBadcondition": "0",
+              "TotalNumberofJudgement1": "0",
+              "TotalJudgementAmount1": "0",
+              "LastJudgementDate1": "-",
+              "TotalNumberofDishonoured1": "0",
+              "TotalDishonouredAmount1": "0.00",
+              "LastBouncedChequesDate1": null,
+              "Rating": null
+            }
+          ]
+        },
+        {
+          "CreditAccountRating": [
+            {
+              "NoOfHomeLoanAccountsGood": 0,
+              "NoOfHomeLoanAccountsBad": 0,
+              "NoOfAutoLoanccountsGood": 0,
+              "NoOfAutoLoanAccountsBad": 0,
+              "NoOfStudyLoanAccountsGood": 0,
+              "NoOfStudyLoanAccountsBad": 0,
+              "NoOfPersonalLoanAccountsGood": 0,
+              "NoOfPersonalLoanAccountsBad": 0,
+              "NoOfCreditCardAccountsGood": 0,
+              "NoOfCreditCardAccountsBad": 0,
+              "NoOfRetailAccountsGood": 0,
+              "NoOfRetailAccountsBad": 0,
+              "NoOfJointLoanAccountsGood": 0,
+              "NoOfJointLoanAccountsBad": 0,
+              "NoOfTelecomAccountsGood": 0,
+              "NoOfTelecomAccountsBad": 0,
+              "NoOfOtherAccountsGood": 0,
+              "NoOfOtherAccountsBad": 0
+            }
+          ]
+        },
+        {
+          "CreditAgreementSummary": []
+        },
+        {
+          "AccountMonthlyPaymentHeader": []
+        },
+        {
+          "AccountMonthlyPaymentHistory": []
+        },
+        {
+          "GuarantorCount": [
+            {
+              "GuarantorsSecured": 0,
+              "Accounts": 0
+            }
+          ]
+        },
+        {
+          "GuarantorDetails": [
+            {
+              "GuarantorFirstName": "",
+              "GuarantorOtherName": "",
+              "GuarantorNationalIDNo": "",
+              "GuarantorPassport": "",
+              "GuarantorDriverLicenceNo": "",
+              "GuarantorPENCOMIDNo": "",
+              "GuarantorOtherID": "",
+              "GuarantorGender": "",
+              "GuarantorDateOfBirth": "",
+              "GuarantorAddress1": "",
+              "GuarantorAddress2": "",
+              "GuarantorAddress3": "",
+              "GuarantorHomeTelephone": "",
+              "GuarantorworkTelephone": "",
+              "GuarantorMobileTelephone": ""
+            }
+          ]
+        },
+        {
+          "EnquiryHistoryTop": []
+        },
+        {
+          "IdentificationHistory": [
+            {
+              "UpDateDate": "",
+              "UpDateOnDate": "",
+              "IdentificationNumber": "",
+              "IdentificationType": ""
+            }
+          ]
+        },
+        {
+          "AddressHistory": []
+        },
+        {
+          "EmploymentHistory": [
+            {
+              "UpDateDate": "",
+              "UpDateOnDate": "",
+              "EmployerDetail": "",
+              "Occupation": ""
+            }
+          ]
+        },
+        {
+          "TelephoneHistory": [
+            {
+              "HomeNoUpdatedonDate": "",
+              "HomeTelephoneNumber": "",
+              "WorkNoUpdatedonDate": "",
+              "WorkTelephoneNumber": "",
+              "MobileNoUpdatedonDate": "",
+              "MobileTelephoneNumber": ""
+            }
+          ]
+        },
+        {
+          "EnquiryDetails": [
+            {
+              "SubscriberEnquiryResultID": null,
+              "ProductID": null,
+              "MatchingRate": null,
+              "SubscriberEnquiryEngineID": null
+            }
+          ]
+        }
+      ],
+      "crn_credit_history": null,
+      "purpose": "who knows what",
+      "success": 0,
+      "deleted_at": null,
+      "created_at": "2025-07-25T18:41:07.000000Z",
+      "updated_at": "2025-07-25T18:41:16.000000Z",
+      "credit_registry_history": {
+        "AccountData": {
+          "PerformingAccounts": [
+            {
+              "Creditor_Registry_ID": "734962723654999353",
+              "Account_No": "5115139026",
+              "Abbreviated_Account_No": "5115139026",
+              "Account_Owners": "ISKILU OJO YEKINI",
+              "Guarantors": "",
+              "Date_Opened": "2024-08-26T00:00:00",
+              "Account_Status_ID": 0,
+              "Date_First_Reported": "2022-03-10T01:57:52.33",
+              "Credit_Limit": 500000,
+              "Balance": 0,
+              "Minimum_Installment": 0,
+              "Account_Type": "PL02",
+              "Term": "365",
+              "Purpose": "NA",
+              "Account_Owner_Notes": "",
+              "Creditor_Notes": "",
+              "Collateral": "",
+              "Collateral_Value": 0,
+              "Legal_Status_ID": 0,
+              "Legal_Status_Date": null,
+              "LastUpdatedBy": "734962723654999355",
+              "LastUpdated": "2024-11-29T14:31:56.76",
+              "Unique_ID": "297672724",
+              "Account_Status_Date": "2024-10-31T00:00:00",
+              "Payment": 32336.12,
+              "Payment_Date": "2024-10-03T00:00:00",
+              "Balance_Date": "2024-10-31T00:00:00",
+              "Term_Frequency": "        ",
+              "State_Change_Date": "2022-03-10T01:57:52.33",
+              "Account_Type_Description": "Revolving Loan",
+              "Currency": "NGN",
+              "Collateral_Currency": "NGN",
+              "CreditorName": "First City Monument Bank Limited",
+              "CreditorAddress": "Primrose Towers\r\n17a Tinubu Street",
+              "CreditorCity": "Lagos Island",
+              "CreditorState": "Lagos",
+              "CreditorFullAddress": "Primrose Towers\r\n17a Tinubu Street Lagos Island Lagos",
+              "Legal_Status": "None",
+              "Account_Status": "Performing",
+              "Subscriber_Type_ID": "2",
+              "Delinquency_Statements": "None",
+              "PaymentProfile": "NNNNNN"
+            },
+            {
+              "Creditor_Registry_ID": "731777726665676499",
+              "Account_No": "2023113684",
+              "Abbreviated_Account_No": "2023113684",
+              "Account_Owners": "ISKILU OJO YEKINI",
+              "Guarantors": "",
+              "Date_Opened": "2013-05-20T00:00:00",
+              "Account_Status_ID": 0,
+              "Date_First_Reported": "2014-02-22T17:21:43.47",
+              "Credit_Limit": 0,
+              "Balance": 0,
+              "Minimum_Installment": 0,
+              "Account_Type": "PL00",
+              "Term": "0",
+              "Purpose": "OTHERS",
+              "Account_Owner_Notes": "",
+              "Creditor_Notes": "",
+              "Collateral": "DOMICILIATION",
+              "Collateral_Value": 0,
+              "Legal_Status_ID": 0,
+              "Legal_Status_Date": null,
+              "LastUpdatedBy": "731102730822895925",
+              "LastUpdated": "2022-01-05T12:53:44.41",
+              "Unique_ID": "169862755",
+              "Account_Status_Date": "2021-12-31T00:00:00",
+              "Payment": 15000,
+              "Payment_Date": "2021-08-25T00:00:00",
+              "Balance_Date": "2021-12-31T00:00:00",
+              "Term_Frequency": "003",
+              "State_Change_Date": "2016-05-31T00:00:00",
+              "Account_Type_Description": "Overdraft",
+              "Currency": "NGN",
+              "Collateral_Currency": "NGN",
+              "CreditorName": "First Bank of Nigeria Plc",
+              "CreditorAddress": "Samuel Asabia House\r\n35 Marina",
+              "CreditorCity": "Lagos Island",
+              "CreditorState": "Lagos",
+              "CreditorFullAddress": "Samuel Asabia House\r\n35 Marina Lagos Island Lagos",
+              "Legal_Status": "None",
+              "Account_Status": "Performing",
+              "Subscriber_Type_ID": "2",
+              "Delinquency_Statements": "Non-performing (lost - 360 days) - 2 times",
+              "PaymentProfile": "NNNNNN"
+            },
+            {
+              "Creditor_Registry_ID": "731777726665676499",
+              "Account_No": "2006736127",
+              "Abbreviated_Account_No": "2006736127",
+              "Account_Owners": "ISKILU OJO YEKINI",
+              "Guarantors": "",
+              "Date_Opened": "2005-12-13T00:00:00",
+              "Account_Status_ID": 0,
+              "Date_First_Reported": "2013-03-21T17:00:08.397",
+              "Credit_Limit": 0,
+              "Balance": 0,
+              "Minimum_Installment": 0,
+              "Account_Type": "PL00",
+              "Term": "0",
+              "Purpose": "",
+              "Account_Owner_Notes": "",
+              "Creditor_Notes": "",
+              "Collateral": "",
+              "Collateral_Value": 0,
+              "Legal_Status_ID": 0,
+              "Legal_Status_Date": null,
+              "LastUpdatedBy": "731102730822895925",
+              "LastUpdated": "2024-02-07T12:22:03.5",
+              "Unique_ID": "131765533",
+              "Account_Status_Date": "2024-02-07T00:00:00",
+              "Payment": 3000,
+              "Payment_Date": "2023-09-29T00:00:00",
+              "Balance_Date": "2024-02-07T00:00:00",
+              "Term_Frequency": "003",
+              "State_Change_Date": "2015-03-31T00:00:00",
+              "Account_Type_Description": "Overdraft",
+              "Currency": "NGN",
+              "Collateral_Currency": "NGN",
+              "CreditorName": "First Bank of Nigeria Plc",
+              "CreditorAddress": "Samuel Asabia House\r\n35 Marina",
+              "CreditorCity": "Lagos Island",
+              "CreditorState": "Lagos",
+              "CreditorFullAddress": "Samuel Asabia House\r\n35 Marina Lagos Island Lagos",
+              "Legal_Status": "None",
+              "Account_Status": "Performing",
+              "Subscriber_Type_ID": "2",
+              "Delinquency_Statements": "Late/overdrawn (less than 30 days) - 3 times\nNon-performing (sub-standard - 90 days) - 28 times",
+              "PaymentProfile": "NNNNNN"
+            }
+          ],
+          "DelinquentAccounts": [],
+          "ClosedAccounts": [
+            {
+              "Creditor_Registry_ID": "731777726665676499",
+              "Account_No": "105C030006777",
+              "Abbreviated_Account_No": "105C030006777",
+              "Account_Owners": "ISKILU OJO YEKINI",
+              "Guarantors": "",
+              "Date_Opened": "2012-01-30T00:00:00",
+              "Account_Status_ID": 999,
+              "Date_First_Reported": "2012-02-21T16:11:38.287",
+              "Credit_Limit": 2000000,
+              "Balance": 0,
+              "Minimum_Installment": 75573,
+              "Account_Type": "PL31",
+              "Term": "36 Months",
+              "Purpose": "Purchase of vehicles and office equipment for business use",
+              "Account_Owner_Notes": "",
+              "Creditor_Notes": "",
+              "Collateral": "3 WALL UNIT AC, 2 MICRO WAVE OVEN, 3 TV, AND GEN SET",
+              "Collateral_Value": 0,
+              "Legal_Status_ID": 0,
+              "Legal_Status_Date": null,
+              "LastUpdatedBy": "735120723197318962",
+              "LastUpdated": "2016-07-29T20:22:12",
+              "Unique_ID": "91546537",
+              "Account_Status_Date": "2016-05-31T00:00:00",
+              "Payment": 75357,
+              "Payment_Date": "2015-02-26T00:00:00",
+              "Balance_Date": "2016-05-31T00:00:00",
+              "Term_Frequency": "Monthly",
+              "State_Change_Date": "2016-05-31T00:00:00",
+              "Account_Type_Description": "Term Loan",
+              "Currency": "NGN",
+              "Collateral_Currency": "NGN",
+              "CreditorName": "First Bank of Nigeria Plc",
+              "CreditorAddress": "Samuel Asabia House\r\n35 Marina",
+              "CreditorCity": "Lagos Island",
+              "CreditorState": "Lagos",
+              "CreditorFullAddress": "Samuel Asabia House\r\n35 Marina Lagos Island Lagos",
+              "Legal_Status": "None",
+              "Account_Status": "Paid Off (Closed)",
+              "Subscriber_Type_ID": "2",
+              "Delinquency_Statements": "Late/overdrawn (less than 30 days) - 3 times",
+              "PaymentProfile": "NNNNNN"
+            }
+          ],
+          "DerogatoryAccounts": [],
+          "WrittenOffAccounts": [],
+          "UnknownStatusAccounts": [],
+          "InquiryHistory": [
+            {
+              "Subscriber_ID": "737943732956217326",
+              "Subscriber": "Links Microfinance Bank Limited",
+              "ContactPhone": "234 1 1511159",
+              "Reason": "KYCCheck",
+              "InquiryDate": "2025-07-25T00:00:00"
+            },
+            {
+              "Subscriber_ID": "737943732956217326",
+              "Subscriber": "Links Microfinance Bank Limited",
+              "ContactPhone": "234 1 1511159",
+              "Reason": "KYCCheck",
+              "InquiryDate": "2025-07-07T00:00:00"
+            },
+            {
+              "Subscriber_ID": "737943732956217326",
+              "Subscriber": "Links Microfinance Bank Limited",
+              "ContactPhone": "234 1 1511159",
+              "Reason": "KYCCheck",
+              "InquiryDate": "2025-06-26T00:00:00"
+            },
+            {
+              "Subscriber_ID": "737943732956217326",
+              "Subscriber": "Links Microfinance Bank Limited",
+              "ContactPhone": "234 1 1511159",
+              "Reason": "KYCCheck",
+              "InquiryDate": "2025-06-25T00:00:00"
+            },
+            {
+              "Subscriber_ID": "737943732956217326",
+              "Subscriber": "Links Microfinance Bank Limited",
+              "ContactPhone": "234 1 1511159",
+              "Reason": "KYCCheck",
+              "InquiryDate": "2025-06-16T00:00:00"
+            },
+            {
+              "Subscriber_ID": "737943732956217326",
+              "Subscriber": "Links Microfinance Bank Limited",
+              "ContactPhone": "234 1 1511159",
+              "Reason": "KYCCheck",
+              "InquiryDate": "2025-06-15T00:00:00"
+            },
+            {
+              "Subscriber_ID": "734962723654999353",
+              "Subscriber": "First City Monument Bank Limited",
+              "ContactPhone": "234012793030",
+              "Reason": "General credit inquiry",
+              "InquiryDate": "2022-02-19T00:00:00"
+            },
+            {
+              "Subscriber_ID": "738052737830840378",
+              "Subscriber": "Allawee Technologies Ltd",
+              "ContactPhone": "08090626690",
+              "Reason": "General credit inquiry",
+              "InquiryDate": "2021-11-02T00:00:00"
+            },
+            {
+              "Subscriber_ID": "738052737830840378",
+              "Subscriber": "Allawee Technologies Ltd",
+              "ContactPhone": "08090626690",
+              "Reason": "KYCCheck",
+              "InquiryDate": "2021-11-02T00:00:00"
+            },
+            {
+              "Subscriber_ID": "738052737830840378",
+              "Subscriber": "Allawee Technologies Ltd",
+              "ContactPhone": "08090626690",
+              "Reason": "General credit inquiry",
+              "InquiryDate": "2021-11-01T00:00:00"
+            },
+            {
+              "Subscriber_ID": "738052737830840378",
+              "Subscriber": "Allawee Technologies Ltd",
+              "ContactPhone": "08090626690",
+              "Reason": "KYCCheck",
+              "InquiryDate": "2021-11-01T00:00:00"
+            },
+            {
+              "Subscriber_ID": "733422733422211233",
+              "Subscriber": "Polaris Bank Limited",
+              "ContactPhone": "N/A",
+              "Reason": "Bank account application",
+              "InquiryDate": "2020-12-09T00:00:00"
+            },
+            {
+              "Subscriber_ID": "731102730822895922",
+              "Subscriber": "CreditRegistry Nigeria",
+              "ContactPhone": "N/A",
+              "Reason": "(Other)",
+              "InquiryDate": "2020-06-18T00:00:00"
+            },
+            {
+              "Subscriber_ID": "731669726010353080",
+              "Subscriber": "Stanbic IBTC Bank Plc",
+              "ContactPhone": "0126203802",
+              "Reason": "General credit inquiry",
+              "InquiryDate": "2018-11-22T00:00:00"
+            }
+          ],
+          "InquiryHistorySummary": {
+            "Last3MonthCount": "2",
+            "Last12MonthCount": "2",
+            "Last36MonthCount": "2"
+          },
+          "Creditors": [
+            {
+              "Subscriber_ID": "731777726665676499",
+              "Name": "First Bank of Nigeria Plc",
+              "Phone": "019052326, 019052000, 014485500",
+              "Address": "Samuel Asabia House 35 Marina Lagos Island Lagos"
+            },
+            {
+              "Subscriber_ID": "734962723654999353",
+              "Name": "First City Monument Bank Limited",
+              "Phone": "234012793030",
+              "Address": "Primrose Towers 17a Tinubu Street Lagos Island Lagos"
+            }
+          ]
+        },
+        "Success": true,
+        "Errors": [],
+        "InfoMessage": "",
+        "TransactionID": "64530679"
+      }
+    }
+  }
+}
