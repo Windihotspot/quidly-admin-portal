@@ -4,6 +4,17 @@ const sidebarItems = [
     path: '/',
     icon: 'mdi-view-dashboard', 
   },
+ {
+  title: 'Reports',
+  path: '/reports',
+  icon: 'mdi-file-chart-outline',
+},
+ {
+  title: 'Reports-Monthly',
+  path: '/reports-monthly',
+  icon: 'mdi-file-chart-outline',
+}
+
   
 ]
 

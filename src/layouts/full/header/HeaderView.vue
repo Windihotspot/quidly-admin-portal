@@ -37,7 +37,7 @@ const handleLogout = async () => {
 
         <!-- Notification Content -->
         <v-card>
-          <v-card-title class="text-xs font-semibold">Notifications</v-card-title>
+          <v-card-title class="text-xs">Notifications</v-card-title>
           <v-divider></v-divider>
           <v-list class="max-h-60 overflow-y-auto">
             

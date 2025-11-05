@@ -11,7 +11,6 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
     "deploy": "vite build && gh-pages -d dist"
-
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
@@ -37,6 +36,7 @@
     "element-plus": "^2.8.7",
     "file-saver": "^2.0.5",
     "gsap": "^3.13.0",
+    "highcharts": "^12.4.0",
     "highlight.js": "^11.11.1",
     "moment": "^2.30.1",
     "pdfmake": "^0.2.20",
