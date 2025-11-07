@@ -5,14 +5,14 @@ const sidebarItems = [
     icon: 'mdi-view-dashboard', 
   },
  {
-  title: 'Reports',
+  title: 'Reports-Quarterly',
   path: '/reports',
-  icon: 'mdi-file-chart-outline',
+  icon: 'mdi-chart-line',
 },
  {
   title: 'Reports-Monthly',
   path: '/reports-monthly',
-  icon: 'mdi-file-chart-outline',
+  icon: 'mdi-calendar-month-outline',
 }
 
   

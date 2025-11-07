@@ -2,7 +2,7 @@
   <MainLayout>
     <div class="dashboard">
       <!-- Header -->
-      <div class="dashboard-header">
+      <div class="dashboard-header m-4 rounded border">
         <h1>Monthly Transactions</h1>
         <div class="date-info">
           <span class="date-label">date:</span>
@@ -12,21 +12,19 @@
 
       <!-- Content -->
       <div class="dashboard-content">
-        <div class="dashboard-layout">
+        <div class="">
           <!-- Left Side: Summary Cards -->
-          <div class="left-sidebar">
-            <SummaryCards :summary-data="summaryData" />
-          </div>
+         
 
           <!-- Right Side: Charts + Transactions -->
-          <div class="right-content">
+          <div class="">
             <!-- Chart with Toggle -->
-            <TransactionChart
+            <MonthlyTransactionChart
               v-if="!chartError"
-              :quarterly-data="monthlyData"
-              :selected-quarter="selectedMonth"
+              :monthly-data="monthlyData"
+              :selected-month="selectedMonth"
               :chart-view="chartView"
-              @quarter-selected="handleMonthSelection"
+              @month-selected="handleMonthSelection"
               @toggle-view="toggleChartView"
             />
             <SimpleChart
@@ -78,14 +76,12 @@
 import MainLayout from '@/layouts/full/MainLayout.vue'
 import { onMounted, ref, onErrorCaptured } from 'vue'
 import { useMonthlyTransactions } from '@/composables/useMonthlyTransactions'
-import SummaryCards from '@/components/SummaryCards.vue'
-import TransactionChart from '@/components/TransactionChart.vue'
+import MonthlyTransactionChart from '@/components/MonthlyTransactionChart.vue'
 import SimpleChart from '@/components/SimpleChart.vue'
 import TransactionList from '@/components/TransactionList.vue'
 
 // --- Use Monthly Composable ---
 const {
-  summaryData,
   loading,
   error,
   selectedMonth,
@@ -173,7 +169,7 @@ onMounted(() => {
 }
 
 .dashboard-content {
-  padding: 24px 32px;
+  padding: 24px 16px;
   max-width: 1600px;
   margin: 0 auto;
 }

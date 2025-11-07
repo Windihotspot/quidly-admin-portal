@@ -1,17 +1,21 @@
 import { ref, computed } from 'vue'
 import type { Transaction, MonthData, SummaryData, ApiResponse, ChartViewType } from '@/types/transaction'
-import { useMonths } from './useMonthly' // we'll create this helper like useQuarters
+import { useMonths } from './useMonthly'
 
 export const useMonthlyTransactions = () => {
+  // --- Base state ---
   const transactions = ref<Transaction[]>([])
   const summaryData = ref<SummaryData>({})
   const loading = ref(true)
   const error = ref('')
-  const selectedMonth = ref('')
-  const chartView = ref<ChartViewType>('count')
 
+  // --- Initialize month utilities FIRST ---
   const { getMonth, generateMonths, getCurrentMonth } = useMonths()
   const months = generateMonths()
+
+  // --- Initialize selectedMonth safely ---
+  const selectedMonth = ref<string>(getCurrentMonth()) // ✅ always a string
+  const chartView = ref<ChartViewType>('count')
 
   // --- Compute monthly data ---
   const monthlyData = computed((): MonthData[] => {
@@ -56,7 +60,7 @@ export const useMonthlyTransactions = () => {
 
   const transactionCount = computed(() => filteredTransactions.value.length)
 
-  // --- Toggle chart view (count/value) ---
+  // --- Toggle chart view ---
   const toggleChartView = () => {
     chartView.value = chartView.value === 'count' ? 'value' : 'count'
   }
@@ -67,12 +71,10 @@ export const useMonthlyTransactions = () => {
       const data = JSON.parse(jsonString)
 
       if (data.cardDetails) {
-        if (data.cardDetails.cardno) {
+        if (data.cardDetails.cardno)
           data.cardDetails.cardno = data.cardDetails.cardno.replace(/\d(?=\d{4})/g, '*')
-        }
-        if (data.cardDetails.cvv) {
+        if (data.cardDetails.cvv)
           data.cardDetails.cvv = '***'
-        }
       }
 
       return JSON.stringify(data, null, 2)
