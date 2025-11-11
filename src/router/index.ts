@@ -6,7 +6,7 @@ import ReportsMonthly from '@/views/dashboard/ReportsMonthly.vue'
 import LoginView from '@/views/LoginView.vue'
 
 const router = createRouter({
-  history: createWebHistory('/'),
+  history: createWebHistory(),
   routes: [
     { path: '/', name: 'login', component: LoginView },
     { path: '/dashboard', name: 'dashboard', component: DashboardView, meta: { requiresAuth: true } },
