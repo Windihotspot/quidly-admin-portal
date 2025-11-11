@@ -12,6 +12,16 @@ interface Merchant {
   business_name: string
   verified: boolean
   created_at?: string
+  photoid?: string
+  poaid?: string
+  companydocid?: string
+  business_address?: string
+  accountid?: string
+  merchantname?: string
+  companyregno?: string
+  companytype?: string
+  business_email?: string
+  entrydt?: string
 }
 
 interface CallbackRequest {
@@ -60,6 +70,27 @@ const dailyTransactionCount = ref<number>(0)
 const weeklyTransactionCount = ref<number>(0)
 const monthlyTransactionCount = ref<number>(0)
 const totalSuccessfulTransactionCount = ref<number>(0)
+
+// -------------------------
+// ✅ Refs and States
+// -------------------------
+const filePhotoId = ref<string | null>(null)
+const filePoaImage = ref<string | null>(null)
+const fileCompanyDocumentImage = ref<string | null>(null)
+const photoIdImage = ref<string | null>(null)
+const poaImage = ref<string | null>(null)
+const companyDocImage = ref<string | null>(null)
+
+const defaultPhotoId = 'https://cdn.pixabay.com/photo/2017/03/08/21/19/file-2127825_640.png'
+const defaultPoa = 'https://cdn.pixabay.com/photo/2017/03/08/21/19/file-2127825_640.png'
+const defaultCompanyDoc = 'https://cdn.pixabay.com/photo/2017/03/08/21/19/file-2127825_640.png'
+
+// const photoIdSrc = computed(() => filePhotoId.value || defaultPhotoId)
+// const poaSrc = computed(() => filePoaImage.value || defaultPoa)
+// const companyDocSrc = computed(() => fileCompanyDocumentImage.value || defaultCompanyDoc)
+
+
+// -------------------------
 
 // -------------------------
 // ✅ Utility Formatters
@@ -176,13 +207,9 @@ const fetchTotalTransactions = async (): Promise<void> => {
       dailyTotal.value = computeAmount(startOfDay)
       weeklyTotal.value = computeAmount(startOfWeek)
       monthlyTotal.value = computeAmount(startOfMonth)
-      totalTransactionAmount.value = transactions.reduce(
-        (total, t) => total + (t.amount || 0),
-        0
-      )
+      totalTransactionAmount.value = transactions.reduce((total, t) => total + (t.amount || 0), 0)
 
-      const filterByDate = (start: Date) =>
-        transactions.filter((t) => new Date(t.entrydt) >= start)
+      const filterByDate = (start: Date) => transactions.filter((t) => new Date(t.entrydt) >= start)
 
       totalTransactionCount.value = transactions.length
       dailyTransactionCount.value = filterByDate(startOfDay).length
@@ -241,14 +268,6 @@ const getSuccessfulTransactions = async (): Promise<void> => {
   }
 }
 
-// -------------------------
-// ✅ Dialog Helpers
-// -------------------------
-const openMerchantDialog = (merchant: Merchant): void => {
-  selectedMerchant.value = merchant
-  showMerchantDialog.value = true
-}
-
 const openCallbackDialog = (callback: CallbackRequest): void => {
   selectedCallback.value = callback
   showCallbackDialog.value = true
@@ -265,8 +284,120 @@ const formattedTotalSuccessfulTransactionAmount = computed<string>(() =>
 )
 
 // -------------------------
-// ✅ Combined Fetch
+// ✅ Document Fetching & Verification
 // -------------------------
+
+// ✅ Fetch Uploaded Documents
+// -------------------------
+const fetchBusinessOwnerUpload = async (
+  fileid: string | undefined | null
+): Promise<string | null> => {
+  if (!fileid) return null
+  return `https://api01-dev.quidly.ng/api/getbusinessownerdocuments/${fileid}`
+}
+
+const fetchCompanyUpload = async (fileid: string | undefined | null): Promise<string | null> => {
+  if (!fileid) return null
+  return `https://api01-dev.quidly.ng/api/getcompanydocuments/${fileid}`
+}
+
+// -------------------------
+// ✅ Open Merchant Dialog
+// -------------------------
+const openMerchantDialog = async (merchant: Merchant) => {
+   console.log('Opening merchant dialog for:', merchant)
+  selectedMerchant.value = merchant
+  showMerchantDialog.value = true
+
+  const photoDoc = (merchant as any).owner_documents?.find(
+    (doc: any) => doc.uploadtypeid === 'photoidfile'
+  )
+  const poaDoc = (merchant as any).owner_documents?.find(
+    (doc: any) => doc.uploadtypeid === 'poaddressfile'
+  )
+  const companyDoc = (merchant as any).company_documents?.find(
+    (doc: any) => doc.uploadtypeid === 'businessdocument'
+  )
+
+  photoIdImage.value = photoDoc?.fileuploadid || null
+  poaImage.value = poaDoc?.fileuploadid || null
+  companyDocImage.value = companyDoc?.fileuploadid || null
+
+  // Automatically fetch URLs
+  filePhotoId.value = await fetchBusinessOwnerUpload(photoIdImage.value)
+  filePoaImage.value = await fetchBusinessOwnerUpload(poaImage.value)
+  fileCompanyDocumentImage.value = await fetchCompanyUpload(companyDocImage.value)
+}
+
+
+const handleViewPhotoId = async () => {
+  if (!selectedMerchant.value?.photoid) return
+  filePhotoId.value = await fetchBusinessOwnerUpload(selectedMerchant.value.photoid)
+}
+
+const handleViewPoa = async () => {
+  if (!selectedMerchant.value?.poaid) return
+  filePoaImage.value = await fetchBusinessOwnerUpload(selectedMerchant.value.poaid)
+}
+
+const handleViewCompanyDocs = async () => {
+  if (!selectedMerchant.value?.companydocid) return
+  fileCompanyDocumentImage.value = await fetchCompanyUpload(selectedMerchant.value.companydocid)
+}
+
+// -------------------------
+// ✅ Verification Functions
+// -------------------------
+
+// Verify Photo ID
+const verifyPhotoId = async (): Promise<void> => {
+  if (!selectedMerchant.value || !filePhotoId.value) return
+  const requestData = {
+    p_accountid: selectedMerchant.value.accountid,
+    p_merchantid: selectedMerchant.value.merchantid,
+    p_fileuploadid: photoIdImage.value,
+    p_status: 1,
+    p_verifiedadminid: adminUserId
+  }
+  const response = await axios.post(
+    'https://api01-dev.quidly.ng/api/mdb/procedure/updateStatus_UploadBusinessOwner',
+    requestData
+  )
+  console.log('Verify Photo ID response:', response.data)
+}
+
+const verifyPoa = async (): Promise<void> => {
+  if (!selectedMerchant.value || !filePoaImage.value) return
+  const requestData = {
+    p_accountid: selectedMerchant.value.accountid,
+    p_merchantid: selectedMerchant.value.merchantid,
+    p_fileuploadid: poaImage.value,
+    p_status: 1,
+    p_verifiedadminid: adminUserId
+  }
+  const response = await axios.post(
+    'https://api01-dev.quidly.ng/api/mdb/procedure/updateStatus_UploadBusinessOwner',
+    requestData
+  )
+  console.log('Verify POA response:', response.data)
+}
+
+const verifyCompanyDocs = async (): Promise<void> => {
+  if (!selectedMerchant.value || !fileCompanyDocumentImage.value) return
+  const requestData = {
+    p_accountid: selectedMerchant.value.accountid,
+    p_merchantid: selectedMerchant.value.merchantid,
+    p_fileuploadid: companyDocImage.value,
+    p_status: 1,
+    p_verifiedadminid: adminUserId
+  }
+  const response = await axios.post(
+    'https://api01-dev.quidly.ng/api/mdb/procedure/updateStatus_UploadCompanyDocs',
+    requestData
+  )
+  console.log('Verify Company Document response:', response.data)
+}
+
 const fetchAll = async (): Promise<void> => {
   loading.value = true
   try {
@@ -275,7 +406,7 @@ const fetchAll = async (): Promise<void> => {
       fetchCallBackCount(),
       fetchTotalMerchantsCount(),
       fetchTotalTransactions(),
-      getSuccessfulTransactions(),
+      getSuccessfulTransactions()
     ])
   } catch (err: any) {
     console.error('Error fetching all:', err.message)
@@ -286,7 +417,6 @@ const fetchAll = async (): Promise<void> => {
 
 onMounted(fetchAll)
 </script>
-
 
 <template>
   <MainLayout>
@@ -305,7 +435,7 @@ onMounted(fetchAll)
           <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded shadow-md p-5">
             <p class="text-sm font-medium opacity-90">Total transactions</p>
             <div class="flex justify-between items-center py-2">
-              <h4 class="text-xl font-semibold">  {{ formatCurrency(totalTransactionAmount) }}</h4>
+              <h4 class="text-xl font-semibold">{{ formatCurrency(totalTransactionAmount) }}</h4>
               <h4 class="text-xl font-semibold">{{ totalTransactionCount }}</h4>
             </div>
             <div class="flex justify-between text-sm opacity-80">
@@ -466,14 +596,14 @@ onMounted(fetchAll)
                     <td>{{ merchant.companyregno }}</td>
                     <td>{{ merchant.companytype }}</td>
                     <td>{{ merchant.business_email }}</td>
-                    <td>{{formatDate(merchant.entrydt) }}</td>
+                    <td>{{ formatDate(merchant.entrydt) }}</td>
                   </tr>
                 </tbody>
               </v-table>
 
               <div class="text-end pa-3">
                 <v-pagination
-                 color="primary"
+                  color="primary"
                   v-model="merchantPage"
                   :length="5"
                   rounded="circle"
@@ -530,7 +660,7 @@ onMounted(fetchAll)
         </v-row>
 
         <!-- Merchant Review Dialog -->
-        <v-dialog v-model="showMerchantDialog" max-width="600">
+        <v-dialog v-model="showMerchantDialog" max-width="700">
           <v-card>
             <v-card-title class="text-h6 font-weight-medium"> Review Merchant </v-card-title>
             <v-card-text>
@@ -541,15 +671,66 @@ onMounted(fetchAll)
 
                 <v-divider class="my-3"></v-divider>
 
-                <div class="flex flex-col gap-2">
-                  <v-btn color="blue-darken-2" variant="text">View Photo ID</v-btn>
-                  <v-btn color="blue-darken-2" variant="text">View Proof of Address</v-btn>
-                  <v-btn color="blue-darken-2" variant="text">View Company Documents</v-btn>
+                <!-- View / Verify Buttons -->
+                <div class="flex flex-col gap-3">
+                  <div class="flex items-center justify-between">
+                    <v-btn color="primary" variant="tonal" @click="handleViewPhotoId">
+                      View Photo ID
+                    </v-btn>
+                    <v-btn color="success" variant="text" @click="verifyPhotoId">Verify</v-btn>
+                  </div>
+
+                  <div class="flex items-center justify-between">
+                    <v-btn color="primary" variant="tonal" @click="handleViewPoa">
+                      View Proof of Address
+                    </v-btn>
+                    <v-btn color="success" variant="text" @click="verifyPoa">Verify</v-btn>
+                  </div>
+
+                  <div class="flex items-center justify-between">
+                    <v-btn color="primary" variant="tonal" @click="handleViewCompanyDocs">
+                      View Company Documents
+                    </v-btn>
+                    <v-btn color="success" variant="text" @click="verifyCompanyDocs">
+                      Verify
+                    </v-btn>
+                  </div>
+                </div>
+
+                <!-- Display fetched images -->
+                <div
+                 
+                  class="mt-4 space-y-3"
+                >
+                  <div v-if="filePhotoId">
+                    <p class="font-semibold text-gray-700">Photo ID</p>
+                    <img
+                      :src="filePhotoId || defaultPhotoId"
+                      alt="Photo ID"
+                      class="w-full rounded-lg shadow-md"
+                    />
+                  </div>
+                  <div v-if="filePoaImage">
+                    <p class="font-semibold text-gray-700">Proof of Address</p>
+                    <img
+                      :src="filePoaImage || defaultPoa"
+                      alt="Proof of Address"
+                      class="w-full rounded-lg shadow-md"
+                    />
+                  </div>
+                  <div v-if="fileCompanyDocumentImage">
+                    <p class="font-semibold text-gray-700">Company Documents</p>
+                    <img
+                      :src="fileCompanyDocumentImage || defaultCompanyDoc"
+                      alt="Company Document"
+                      class="w-full rounded-lg shadow-md"
+                    />
+                  </div>
                 </div>
 
                 <v-switch
                   v-model="verifyMerchant"
-                  label="Verify Merchant"
+                  label="Mark Merchant as Verified"
                   color="success"
                   inset
                   class="mt-4"
@@ -593,7 +774,6 @@ onMounted(fetchAll)
     </div>
   </MainLayout>
 </template>
-
 
 <style scoped>
 .v-btn {

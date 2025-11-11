@@ -1,7 +1,7 @@
 const sidebarItems = [
   {
     title: 'Dashboard',
-    path: '/',
+    path: '/dashboard',
     icon: 'mdi-view-dashboard', 
   },
  {

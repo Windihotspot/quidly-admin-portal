@@ -6,14 +6,13 @@ import quidlyLogo from '@/assets/images/quidly(q).png'
 
 // Notification menu state
 const notifMenu = ref(false)
+import { useAuthStore } from '@/stores/auth'
 
-
-
-
-// Logout handler
-const handleLogout = async () => {
-  await auth.logout()
-  router.push('/') // redirect to login after logout
+const authStore = useAuthStore()
+const user = computed(() => authStore.user)
+const handleLogout = () => {
+  authStore.logout()
+  router.push({ name: 'login' })
 }
 </script>
 
@@ -61,8 +60,8 @@ const handleLogout = async () => {
         </template>
 
         <v-list>
-          <v-list-item
-            :to="{ name: 'adminprofile' }"
+          <!-- <v-list-item
+            
             link
             class="text-gray-700 hover:text-black-500"
           >
@@ -70,7 +69,7 @@ const handleLogout = async () => {
               <i class="fas fa-user text-gray-500 hover:text-gray-500"></i>
               <v-list-item-title>Profile</v-list-item-title>
             </div>
-          </v-list-item>
+          </v-list-item> -->
           <v-list-item @click="handleLogout" link class="text-gray-700 hover:text-red-500">
             <div class="flex items-center gap-2">
               <i class="fas fa-sign-out-alt text-gray-500 hover:text-red-500"></i>

@@ -1,3 +1,12 @@
+/* Add this to your main.css or app.css */
+input,
+textarea,
+select {
+  border: none !important;
+  outline: none;
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
